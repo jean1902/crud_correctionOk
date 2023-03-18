@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Public/controller/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+            <table class="tableau">
+                <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Fonction</th>
+                <th>delete</th>
+                <th>insert</th>
+                <th>update</th>
+                </tr>
+                <tr>
+                    <% select_user.forEach(function(users){ %>
+                        <td> <%= users.id %></td>
+                    <td> <%= users.Nom %></td>
+                    <td> <%= users.Prenom %></td>
+                    <td> <%= users.age %> </td>
+                    <td> <%= users.Fonction %></td>
+                    <td> <a href="delete/<%= users.id %>" class="btn btn-del" onclick="confirm('etes vous sur de supprimer')"  > suprimer</a></td>
+                    <td>
+                        <a class="btn btn-insert">insert</a>
+                    </td>
+                    <td> <a   href="update/<%= users.id %>" class=" btn btn-update" >update</a></td>
+                </tr>
+                <%}) ;%>
+            </table>
+
+
+
+
+
+        <form action="/" method="post" class="formulaire" >
+            <h1> Formulaire de demande</h1>
+            <div class="form_group">
+                <label class="label-size" for="nom"> Nom :</label>
+                <input type="text" id="nom" name="Nom" placeholder=" entrer votre nom svp">
+            </div>
+            <div class="form_group">
+                <label class="label-size" for="prenom"> Prenom :</label>
+                <input type="text" id="prenom" name="Prenom" placeholder=" entrer votre nom prenom">
+            </div>
+            <div class="form_group">
+                <label class="label-size" for="Age"> Age :</label>
+                <input type="text" id="Age" name="Age" placeholder=" entrer votre age svp">
+            </div>
+            <div class="form_group">
+                <label  class="label-size" for="fonction "> fonction :</label>
+                <input type="text" id="fonction" name="Fonction" placeholder=" entrer votre poste">
+            </div>
+            <button   type="submit" class="btn-formulaire"> envoyez</button>
+        </form>   
+</body>
+</html>
