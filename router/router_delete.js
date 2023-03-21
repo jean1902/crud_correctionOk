@@ -10,9 +10,9 @@ const controller_update =require("../Public/controller/controller_update");
 
 // routes
 
-router.get('/delete/:id', (req,res)=>{
+router.get('/delete', (req,res)=>{
     console.log(req.params)
-    var id = request.body.id; 
+    var id = req.params.id; 
       console.log(userid)
       let sql =`DELETE * FROM carracteristique WHERE id = "${id}"
       `;
