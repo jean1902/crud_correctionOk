@@ -1,29 +1,23 @@
-const bodyParser = require("body-parser");
-let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const db = require("../../BD/bd")
 
-let control_Delete= class Control{
+let requetteDelete = class {
+  static supprimer = (req, res) => {
+     let id = req.params.id;  //params permet de determiner id de l url
+     console.log('voila le id',id)
 
-    static  requetteDElete =(req ,res)=>{
-      // supprimer les donnees de la BD
-      console.log(req.params)
-      var id = request.params.id; 
-        console.log(userid)
-        let sql =`DELETE * FROM carracteristique WHERE id = "${id}"
-        `;
-        db.query( sql,(rows,err)=>{
-            if (err) {
-              console.log("ERREUR", err); 
-             
-            } else {
-             
-             res.redirect("/")
-             
-          
-            }
-          })
+    let DELETE = `delete from  carracteristique WHERE id = ${id}`;
+
+    db.query(DELETE, [id], function (error, rows) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("ok", rows);
+        res.redirect("/");
       
-       
-    }}
-    module.exports= control_Delete ;
+      }
+    });
+  };
+};
+
+module.exports = requetteDelete;

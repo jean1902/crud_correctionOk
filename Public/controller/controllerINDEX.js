@@ -44,6 +44,9 @@ let control_Index= class Control{
           );
       
      }
-}
+    }
+
+          
+               
 
 module.exports =control_Index ;

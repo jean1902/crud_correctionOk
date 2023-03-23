@@ -6,31 +6,12 @@ const db = require("../BD/bd")
 // tres important le urlencoded si non le bodyparser ne pourra pas recuperer les donnees du formulaires tranquilement
 
 
-const controller_update =require("../Public/controller/controller_update");
+const controll_Delete =require("../Public/controller/controller_Delete");
 
 // routes
 
-router.get('/delete', (req,res)=>{
-    console.log(req.params)
-    var id = req.params.id; 
-      console.log(userid)
-      let sql =`DELETE * FROM carracteristique WHERE id = "${id}"
-      `;
-      db.query( sql,(rows,err)=>{
-          if (err) {
-            console.log("ERREUR", err); 
-            console.log(rows)
-           
-          } else {
-           
-           res.redirect("/")
-           
-        
-          }
-        })
-    
-})
 
-//  router.post('/update',urlencodedParser,controller_update.requetteUpdateId )
+router.get('/delete/:id',  controll_Delete.supprimer )
+
 // recuper le formulaire avec le router post et non get
 module.exports =router;

@@ -10,13 +10,13 @@
 <body>
             <table class="tableau">
                 <tr>
-                <th>ID</th>
+                    <th>id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Age</th>
                 <th>Fonction</th>
                 <th>delete</th>
-                <th>insert</th>
+            
                 <th>update</th>
                 </tr>
                 <tr>
@@ -27,9 +27,6 @@
                     <td> <%= users.age %> </td>
                     <td> <%= users.Fonction %></td>
                     <td> <a href="delete/<%= users.id %>" class="btn btn-del" onclick="confirm('etes vous sur de supprimer')"  > suprimer</a></td>
-                    <td>
-                        <a class="btn btn-insert">insert</a>
-                    </td>
                     <td> <a   href="update/<%= users.id %>" class=" btn btn-update" >update</a></td>
                 </tr>
                 <%}) ;%>
@@ -40,7 +37,7 @@
 
 
         <form action="/" method="post" class="formulaire" >
-            <h1> Formulaire de demande</h1>
+            <h1> Ajoutez un utilisateur</h1>
             <div class="form_group">
                 <label class="label-size" for="nom"> Nom :</label>
                 <input type="text" id="nom" name="Nom" placeholder=" entrer votre nom svp">

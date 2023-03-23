@@ -12,5 +12,6 @@ const controll_Index =require("../Public/controller/controllerINDEX");
 
 router.get('/', controll_Index.requetteIndex)
 router.post('/',urlencodedParser,controll_Index.requetteInSertBd )
+
 // recuper le formulaire avec le router post et non get
 module.exports =router;

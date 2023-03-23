@@ -19,7 +19,7 @@ let control_Update= class Control{
             } else {
              
               res.render('../views/update', { user:data_result[0]});
-              console.log("donnee recupere", data_result);
+              // console.log("donnee recupere", data_result);
              
               // res.redirect("data");
             }
@@ -29,17 +29,18 @@ let control_Update= class Control{
     }
     static  requetteUpdateId =( req,res)=>{
       
-      // var id = req.params.id;
-      var Nom = req.body.Nom;
-      var Prenom = req.body.Prenom;
-      var Age = req.body.Age;
-      var Fonction = req.body.Fonction;
+      var nom = req.body.Nom;
+      
+      var prenom = req.body.Prenom;
+      var age = req.body.Age;
+      var fonction = req.body.Fonction;
+      console.log(nom,prenom,age,fonction,"voila tes donnees")
     
 
-	var Update= "UPDATE `carracteristique` set  `Nom`=?, `Prenom`=? , `Age`=?, `Fonction`=? where `id`=userid"
+	let Update= `UPDATE carracteristique set  Nom=?, Prenom=? , Age=?, Fonction=?  WHERE id=${userid}`
 
 
-	db.query(Update,[id,Nom,Prenom,Age,Fonction],function(error,rows, data){
+	db.query(Update,[nom,prenom,age,fonction],function(error,rows){
 
 		if(error)
 		{
@@ -47,6 +48,7 @@ let control_Update= class Control{
 		}
 		else
 		{
+
       res.redirect('/');
       console.log('ok',rows)
       // res.json({"ResponseCode":"1","ResponseMessage":"Data Updated Successfully","data":rows});

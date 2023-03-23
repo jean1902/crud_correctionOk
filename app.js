@@ -7,7 +7,9 @@
 
     const routerAccueil =require("./router/routerIndex");
     const routerUpdate =require("./router/router_update");
-    const routerDelete =require("./router/router_update");
+    const Delete =require("./router/router_delete");
+   
+    
    
    
 
@@ -18,7 +20,7 @@ app.use('/Public', express.static('public'))
 
 app.use("/",  routerAccueil)
 app.use("/",  routerUpdate)
-app.use("/" ,routerDelete)
+app.use("/",  Delete)
 
 
 
